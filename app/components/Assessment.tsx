@@ -56,7 +56,7 @@ export default function Assessment() {
                   <path d="M12 2L13.5 9.5L21 12L13.5 14.5L12 22L10.5 14.5L3 12L10.5 9.5L12 2Z" />
                 </svg>
                 <span className="text-white font-medium">
-                  Clarity Assessment
+                  The Five Archetypes
                 </span>
               </div>
               <span className="bg-white/20 text-white text-xs font-medium px-2.5 py-1 rounded-full">

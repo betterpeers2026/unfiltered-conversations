@@ -1,7 +1,7 @@
 const pathways = [
   {
     title: "The Podcast",
-    price: "Free, Always",
+    price: "Free — Always",
     description:
       "Short episodes organized by archetype. The specific language, frameworks, and tension points for your pattern, not generic leadership content.",
     cta: "Listen Now",
@@ -11,20 +11,20 @@ const pathways = [
   },
   {
     title: "The Decision Room",
-    price: "$200 per session",
+    price: "By Application",
     description:
-      "A private, 1:1 session to work a real decision through your archetype pattern. Not advice. Better judgment. One session, one decision, real clarity.",
-    cta: "Book a Session",
+      "A private session for leaders navigating a critical decision, transition, or high-stakes moment. Not advice. Better judgment. Apply with your assessment results.",
+    cta: "Apply Now",
     ctaHref: "#",
     featured: true,
-    badge: "Most Popular",
+    badge: null,
   },
   {
     title: "Decision Labs",
-    price: "Custom, For Teams",
+    price: "Custom — For Teams",
     description:
       "Map your leadership team's archetypes together. Build shared language for how you make decisions and where patterns collide.",
-    cta: "Learn More",
+    cta: "Inquire",
     ctaHref: "#",
     featured: false,
     badge: null,
