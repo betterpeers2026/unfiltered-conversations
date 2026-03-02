@@ -2,13 +2,16 @@
 
 @theme inline {
   --color-ice-blue: #EBF6FB;
-  --color-indigo: #2A388F;
-  --color-sky: #00ADEF;
+  --color-royal: #2A388F;
+  --color-cyan: #00B8FB;
   --color-lavender: #888EB9;
   --color-surface: #F7F8FA;
   --color-foreground: #1a1a2e;
-  --font-serif: var(--font-fraunces), Georgia, serif;
-  --font-sans: var(--font-outfit), system-ui, sans-serif;
+  /* Legacy aliases */
+  --color-indigo: #2A388F;
+  --color-sky: #00B8FB;
+  --font-serif: var(--font-libre-baskerville), Georgia, serif;
+  --font-sans: var(--font-dm-sans), system-ui, sans-serif;
 }
 
 html {

@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const links = [
   { label: "The Archetypes", href: "#archetypes" },
-  { label: "The Assessment", href: "#assessment" },
+  { label: "The Assessment", href: "/assessment" },
   { label: "Solutions", href: "#solutions" },
   { label: "Podcast", href: "#podcast" },
   { label: "About", href: "#about" },
@@ -41,7 +41,7 @@ export default function Nav() {
         {/* Right CTA + mobile toggle */}
         <div className="flex items-center gap-4">
           <a
-            href="#assessment"
+            href="/assessment"
             className="hidden md:inline-flex items-center px-5 py-2.5 bg-indigo text-white text-sm font-medium rounded-lg hover:bg-indigo/90 transition-colors"
           >
             Take the Assessment
@@ -76,7 +76,7 @@ export default function Nav() {
             </a>
           ))}
           <a
-            href="#assessment"
+            href="/assessment"
             className="inline-flex items-center px-5 py-2.5 bg-indigo text-white text-sm font-medium rounded-lg mt-2"
             onClick={() => setMobileOpen(false)}
           >

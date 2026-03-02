@@ -59,7 +59,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="#assessment"
+                  href="/assessment"
                   className="text-foreground/50 text-sm hover:text-foreground transition-colors"
                 >
                   Clarity Assessment

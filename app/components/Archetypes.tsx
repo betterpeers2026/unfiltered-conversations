@@ -80,7 +80,7 @@ export default function Archetypes() {
         {/* CTA */}
         <div className="text-center mt-12">
           <a
-            href="#assessment"
+            href="/assessment"
             className="inline-flex items-center px-6 py-3 bg-sky text-white font-medium rounded-lg hover:bg-sky/90 transition-colors"
           >
             Which one are you? Take the Assessment

@@ -36,7 +36,7 @@ export default function Assessment() {
             </div>
 
             <a
-              href="#"
+              href="/assessment"
               className="inline-flex items-center px-6 py-3 bg-indigo text-white font-medium rounded-lg hover:bg-indigo/90 transition-colors"
             >
               Start the Assessment

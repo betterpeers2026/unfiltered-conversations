@@ -1,0 +1,281 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// Auth.js models
+model User {
+  id                    String               @id @default(cuid())
+  email                 String               @unique
+  emailVerified         DateTime?
+  name                  String?
+  image                 String?
+  role                  String               @default("client")
+  company               String?
+  archetypeId           String?
+  assessmentCompletedAt DateTime?
+  stripeCustomerId      String?              @unique
+  teamId                String?
+  reportPurchasedAt     DateTime?
+  reportGeneratedAt     DateTime?
+  createdAt             DateTime             @default(now())
+  updatedAt             DateTime             @updatedAt
+
+  archetype             Archetype?           @relation(fields: [archetypeId], references: [id])
+  accounts              Account[]
+  sessions              Session[]
+  assessmentResponses   AssessmentResponse[]
+  clientPlans           ClientPlan[]         @relation("ClientPlans")
+  coachPlans            ClientPlan[]         @relation("CoachPlans")
+  actionResponses       ActionResponse[]
+  gateReviews           GateReview[]
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+  @@unique([identifier, token])
+}
+
+model VerificationCode {
+  id        String   @id @default(cuid())
+  email     String
+  code      String
+  expiresAt DateTime
+  used      Boolean  @default(false)
+  createdAt DateTime @default(now())
+  @@index([email, expiresAt])
+}
+
+// Archetypes
+model Archetype {
+  id                   String   @id @default(cuid())
+  slug                 String   @unique
+  title                String
+  symbol               String
+  coreQuestion         String
+  decisionPrinciple    String   @db.Text
+  coreStrength         String   @db.Text
+  areasOfGrowth        String   @db.Text
+  costStatement        String   @db.Text
+  howOthersSeeYou      String   @db.Text
+  overuseRisk          String   @db.Text
+  firstMove            String   @db.Text
+  tension              String
+  power                String
+  pressureResponse     String
+  risk                 String
+  focusTogether        String?  @db.Text
+  honestAbout          String?  @db.Text
+  // Legacy fields
+  glyph                String?
+  tensionLeft          String?
+  tensionRight         String?
+  stuckInsight         String?  @db.Text
+  strength             String?
+  growthEdge           String?
+  needsLess            String?
+  needsMore            String?
+  fiveMinuteSignal     String?  @db.Text
+  coreTension          String?  @db.Text
+  preDecisionQuestions String[]
+  bossWorksWell        String[]
+  bossStruggles        String[]
+
+  users                User[]
+  assessmentResults    AssessmentResponse[]
+  secondaryResults     AssessmentResponse[] @relation("SecondaryArchetype")
+  phases               Phase[]
+  competencies         Competency[]
+}
+
+model AssessmentQuestion {
+  id        String  @id @default(cuid())
+  order     Int     @unique
+  prompt    String  @db.Text
+  dimension String
+  reverse   Boolean @default(false)
+  weights   Json
+  version   Int     @default(1)
+  active    Boolean @default(true)
+  options   Json?
+}
+
+model AssessmentResponse {
+  id                    String   @id @default(cuid())
+  userId                String
+  answers               Json
+  scores                Json
+  dimensionScores       Json
+  archetypeZScores      Json
+  resultArchetypeId     String
+  secondaryArchetypeId  String?
+  overuseLevel          String
+  version               Int      @default(1)
+  completedAt           DateTime @default(now())
+
+  user                User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  resultArchetype     Archetype @relation(fields: [resultArchetypeId], references: [id])
+  secondaryArchetype  Archetype? @relation("SecondaryArchetype", fields: [secondaryArchetypeId], references: [id])
+  clientPlan          ClientPlan?
+  @@index([userId])
+}
+
+model Dimension {
+  id          String @id @default(cuid())
+  slug        String @unique
+  name        String
+  description String @db.Text
+  order       Int    @unique
+  levels      DimensionLevel[]
+}
+
+model DimensionLevel {
+  id          String @id @default(cuid())
+  dimensionId String
+  tier        Int
+  maxScore    Float
+  label       String
+  description String @db.Text
+  color       String
+  dimension   Dimension @relation(fields: [dimensionId], references: [id], onDelete: Cascade)
+  @@unique([dimensionId, tier])
+}
+
+model Phase {
+  id            String @id @default(cuid())
+  archetypeId   String
+  phaseNumber   Int
+  title         String
+  resource      String
+  weeks         String
+  objective     String @db.Text
+  archetype     Archetype @relation(fields: [archetypeId], references: [id], onDelete: Cascade)
+  actions       Action[]
+  gateCriteria  GateCriterion[]
+  @@unique([archetypeId, phaseNumber])
+}
+
+model Action {
+  id          String  @id @default(cuid())
+  phaseId     String
+  order       Int
+  title       String
+  description String  @db.Text
+  inputType   String
+  inputs      Json
+  prompt      String? @db.Text
+  promptParts Json?
+  phase       Phase   @relation(fields: [phaseId], references: [id], onDelete: Cascade)
+  responses   ActionResponse[]
+  @@unique([phaseId, order])
+}
+
+model GateCriterion {
+  id      String @id @default(cuid())
+  phaseId String
+  order   Int
+  text    String @db.Text
+  phase   Phase  @relation(fields: [phaseId], references: [id], onDelete: Cascade)
+  @@unique([phaseId, order])
+}
+
+model Competency {
+  id            String @id @default(cuid())
+  archetypeId   String
+  dimensionSlug String
+  fromLevel     String
+  toLevel       String
+  phaseRange    String
+  archetype     Archetype @relation(fields: [archetypeId], references: [id], onDelete: Cascade)
+  @@unique([archetypeId, dimensionSlug])
+}
+
+model ClientPlan {
+  id              String    @id @default(cuid())
+  clientId        String
+  coachId         String?
+  assessmentId    String    @unique
+  archetypeSlug   String
+  currentPhase    Int       @default(1)
+  status          String    @default("active")
+  startedAt       DateTime  @default(now())
+  completedAt     DateTime?
+  client          User      @relation("ClientPlans", fields: [clientId], references: [id], onDelete: Cascade)
+  coach           User?     @relation("CoachPlans", fields: [coachId], references: [id])
+  assessment      AssessmentResponse @relation(fields: [assessmentId], references: [id])
+  actionResponses ActionResponse[]
+  gateReviews     GateReview[]
+  @@index([clientId])
+  @@index([coachId])
+}
+
+model ActionResponse {
+  id          String    @id @default(cuid())
+  planId      String
+  actionId    String
+  userId      String
+  values      Json
+  status      String    @default("not_started")
+  savedAt     DateTime  @updatedAt
+  completedAt DateTime?
+  plan        ClientPlan @relation(fields: [planId], references: [id], onDelete: Cascade)
+  action      Action     @relation(fields: [actionId], references: [id])
+  user        User       @relation(fields: [userId], references: [id])
+  coachNotes  CoachNote[]
+  @@unique([planId, actionId])
+  @@index([planId])
+}
+
+model CoachNote {
+  id               String   @id @default(cuid())
+  actionResponseId String
+  note             String   @db.Text
+  actionResponse   ActionResponse @relation(fields: [actionResponseId], references: [id], onDelete: Cascade)
+}
+
+model GateReview {
+  id            String    @id @default(cuid())
+  planId        String
+  phaseNumber   Int
+  criteriaMet   Json
+  coachApproved Boolean   @default(false)
+  coachNotes    String?   @db.Text
+  reviewedBy    String?
+  reviewedAt    DateTime?
+  advancedAt    DateTime?
+  plan          ClientPlan @relation(fields: [planId], references: [id], onDelete: Cascade)
+  reviewer      User?      @relation(fields: [reviewedBy], references: [id])
+  @@unique([planId, phaseNumber])
+  @@index([planId])
+}

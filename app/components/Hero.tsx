@@ -50,7 +50,7 @@ export default function Hero() {
 
             <div className="flex flex-wrap items-center gap-4 mb-4">
               <a
-                href="#assessment"
+                href="/assessment"
                 className="inline-flex items-center px-6 py-3 bg-indigo text-white font-medium rounded-lg hover:bg-indigo/90 transition-colors"
               >
                 Take the Assessment
@@ -127,7 +127,7 @@ export default function Hero() {
                 </div>
 
                 <a
-                  href="#assessment"
+                  href="/assessment"
                   className="text-sky text-xs font-medium mt-3 block hover:underline"
                 >
                   See your full archetype breakdown →

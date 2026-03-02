@@ -14,7 +14,7 @@ export default function CTABanner() {
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <a
-            href="#assessment"
+            href="/assessment"
             className="inline-flex items-center px-6 py-3 bg-sky text-white font-medium rounded-lg hover:bg-sky/90 transition-colors"
           >
             Take the Assessment
