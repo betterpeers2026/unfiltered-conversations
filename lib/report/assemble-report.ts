@@ -107,7 +107,7 @@ export function assembleReportData(
     tendencies: [...content.tendencies],
     misreadIntro: content.misreadIntro,
     misreadOutro: content.misreadOutro,
-    misreadMetrics: [...content.misreadMetrics],
+    misreadMetrics: content.misreadMetrics.map((m) => ({ ...m })),
     firstMove: content.firstMove,
     roadmap: content.roadmap.map((m) => ({
       monthTitle: m.monthTitle,

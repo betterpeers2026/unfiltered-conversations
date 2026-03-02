@@ -58,7 +58,7 @@ export default async function ResultsPage({ params }: { params: Promise<{ id: st
 
   const user = await prisma.user.findUnique({
     where: { id: session.user.id },
-    select: { reportPurchasedAt: true },
+    select: { name: true, email: true },
   });
 
   const dimensionScores = response.dimensionScores as Record<string, number>;
@@ -327,7 +327,7 @@ export default async function ResultsPage({ params }: { params: Promise<{ id: st
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <ReportDownloadButton
               responseId={id}
-              hasPurchased={!!user?.reportPurchasedAt}
+              userName={user?.name || user?.email || "Report"}
             />
             <Link
               href="/"

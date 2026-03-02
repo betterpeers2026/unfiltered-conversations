@@ -55,12 +55,13 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "User not found" }, { status: 404 });
   }
 
-  if (!user.reportPurchasedAt) {
-    return NextResponse.json(
-      { error: "Report not purchased" },
-      { status: 402 }
-    );
-  }
+  // TODO: Re-enable payment gating before production launch
+  // if (!user.reportPurchasedAt) {
+  //   return NextResponse.json(
+  //     { error: "Report not purchased" },
+  //     { status: 402 }
+  //   );
+  // }
 
   if (!response.resultArchetype || !response.secondaryArchetype) {
     return NextResponse.json(
