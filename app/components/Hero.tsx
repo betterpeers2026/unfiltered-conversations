@@ -65,8 +65,7 @@ export default function Hero() {
             </div>
 
             <p className="text-sm text-foreground/50">
-              <span className="text-sky font-medium">Free</span> · 90 seconds ·
-              No email required
+              50 questions · 10 minutes · Personalized report available
             </p>
           </div>
 

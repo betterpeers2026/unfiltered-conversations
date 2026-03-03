@@ -1,33 +1,39 @@
 const pathways = [
   {
-    title: "The Podcast",
-    price: "Free — Always",
+    title: "The Assessment",
+    price: "Free",
     description:
-      "Short episodes organized by archetype. The specific language, frameworks, and tension points for your pattern, not generic leadership content.",
-    cta: "Listen Now",
-    ctaHref: "#podcast",
+      "50 questions across six leadership dimensions. See your archetype, your pattern, and what it's costing you. The starting point for everything else.",
+    cta: "Take the Assessment",
+    ctaHref: "/assessment",
     featured: false,
-    badge: null,
+  },
+  {
+    title: "The Full Report",
+    price: "$50",
+    description:
+      "Your complete five-page leadership assessment. Executive summary, six scored dimensions, behavioral tendencies, interpretation risk, 90-day activation plan, and your decision principle.",
+    cta: "Unlock After Assessment",
+    ctaHref: "/assessment",
+    featured: true,
   },
   {
     title: "The Decision Room",
     price: "By Application",
     description:
-      "A private session for leaders navigating a critical decision, transition, or high-stakes moment. Not advice. Better judgment. Apply with your assessment results.",
+      "A private session for leaders navigating a critical decision, transition, or high-stakes moment. Not advice. Better judgment. Built on your assessment results.",
     cta: "Apply Now",
     ctaHref: "#",
-    featured: true,
-    badge: null,
+    featured: false,
   },
   {
     title: "Decision Labs",
-    price: "Custom — For Teams",
+    price: "Custom \u00b7 For Teams",
     description:
       "Map your leadership team's archetypes together. Build shared language for how you make decisions and where patterns collide.",
     cta: "Inquire",
     ctaHref: "#",
     featured: false,
-    badge: null,
   },
 ];
 
@@ -44,7 +50,7 @@ export default function Pathways() {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {pathways.map((pathway, i) => (
             <div
               key={i}
@@ -56,18 +62,12 @@ export default function Pathways() {
             >
               {/* Photo placeholder */}
               <div
-                className={`h-44 ${
+                className={`h-36 ${
                   pathway.featured
                     ? "bg-gradient-to-br from-sky/10 to-indigo/10"
                     : "bg-gradient-to-br from-ice-blue to-lavender/10"
                 }`}
               />
-
-              {pathway.badge && (
-                <span className="absolute top-4 right-4 bg-sky text-white text-xs font-semibold px-3 py-1 rounded-full">
-                  {pathway.badge}
-                </span>
-              )}
 
               <div className="p-6">
                 <h3 className="font-serif text-lg font-bold text-foreground mb-1">
