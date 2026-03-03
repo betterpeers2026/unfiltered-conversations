@@ -1,19 +1,19 @@
 const pathways = [
   {
-    title: "The Assessment",
-    price: "Free",
+    title: "The Podcast",
+    price: "Free \u00b7 Always",
     description:
-      "50 questions across six leadership dimensions. See your archetype, your pattern, and what it's costing you. The starting point for everything else.",
-    cta: "Take the Assessment",
-    ctaHref: "/assessment",
+      "Short episodes organized by archetype. The specific language, frameworks, and tension points for your pattern, not generic leadership content.",
+    cta: "Listen Now",
+    ctaHref: "#podcast",
     featured: false,
   },
   {
-    title: "The Full Report",
+    title: "The Assessment + Report",
     price: "$50",
     description:
-      "Your complete five-page leadership assessment. Executive summary, six scored dimensions, behavioral tendencies, interpretation risk, 90-day activation plan, and your decision principle.",
-    cta: "Unlock After Assessment",
+      "50 questions across six leadership dimensions. Your complete five-page report with executive summary, scored dimensions, behavioral tendencies, interpretation risk, 90-day activation plan, and your decision principle.",
+    cta: "Take the Assessment",
     ctaHref: "/assessment",
     featured: true,
   },
