@@ -15,7 +15,7 @@ export default function Podcast() {
             <p className="text-foreground/70 leading-relaxed mb-8">
               Short episodes built around real leadership patterns. Each one
               tackles a specific archetype, decision point, or workplace dynamic.
-              Not theory. Not motivation. Just clarity.
+              Not theory. Not motivation. Just insight you can use.
             </p>
             <a
               href="#"

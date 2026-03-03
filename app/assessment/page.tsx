@@ -99,7 +99,7 @@ export default async function AssessmentLandingPage() {
 
           {/* Meta */}
           <p className="text-[#1a1a2e]/40 text-[14px]">
-            8 min · 50 questions · Free
+            10 min · 50 questions · Personalized report available
           </p>
         </div>
       </section>

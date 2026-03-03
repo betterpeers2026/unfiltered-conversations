@@ -62,7 +62,7 @@ export default function Footer() {
                   href="/assessment"
                   className="text-foreground/50 text-sm hover:text-foreground transition-colors"
                 >
-                  Clarity Assessment
+                  Leadership Assessment
                 </a>
               </li>
               <li>

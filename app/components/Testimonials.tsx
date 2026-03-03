@@ -7,7 +7,7 @@ const testimonials = [
   },
   {
     quote:
-      "The Decision Room gave me more clarity in 60 minutes than six months of going back and forth in my own head. I made the call the next day and got the role three months later.",
+      "The Decision Room gave me more perspective in 60 minutes than six months of going back and forth in my own head. I made the call the next day and got the role three months later.",
     name: "Director of Product",
     detail: "Promoted to VP within the quarter",
   },
