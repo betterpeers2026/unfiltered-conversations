@@ -4,7 +4,7 @@ export default function CTABanner() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,173,239,0.15),transparent_70%)]" />
 
       <div className="relative max-w-3xl mx-auto px-6 text-center">
-        <h2 className="font-serif text-3xl md:text-4xl text-white leading-tight mb-4">
+        <h2 className="font-serif text-[30px] md:text-[32px] text-white leading-tight mb-4">
           Name the pattern. Change the{" "}
           <em className="text-sky italic">narrative</em>.
         </h2>

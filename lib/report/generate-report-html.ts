@@ -52,6 +52,8 @@ function escapeHtml(str: string): string {
     .replace(/'/g, "&#039;");
 }
 
+const CALENDLY_URL = "https://calendly.com/trevor-uc/decision-room";
+
 export function generateReportHTML(data: ReportData): string {
   const e = (s: string) => escapeHtml(s);
 
@@ -209,10 +211,13 @@ export function generateReportHTML(data: ReportData): string {
     .gf-box{background:#F0F7FF;padding:28px 32px;margin-top:auto;margin-bottom:24px}
     .gf-text{font-family:'Libre Baskerville',serif;font-size:15px;color:#2D3A8C;line-height:1.65;text-align:center}
 
-    .closing{text-align:center;padding-top:24px;border-top:1px solid #eee}
-    .closing-text{font-family:'Libre Baskerville',serif;font-size:20px;color:#1a1a2e;margin-bottom:20px}
-    .closing-btn{display:inline-block;background:#2D3A8C;color:#fff;padding:14px 32px;font-size:13px;font-weight:600;text-decoration:none;text-transform:uppercase;letter-spacing:1px}
-    .closing-url{margin-top:20px;font-size:11px;color:#999}
+    .closing{text-align:center;padding-top:32px;border-top:1px solid #eee;margin-top:auto}
+    .closing-heading{font-family:'Libre Baskerville',serif;font-size:22px;color:#1a1a2e;margin-bottom:12px}
+    .closing-offer{font-size:15px;color:#555;margin-bottom:6px;line-height:1.6}
+    .closing-details{font-size:13px;color:#888;margin-bottom:28px;line-height:1.6}
+    .closing-cta{display:inline-block;background:#2D3A8C;color:#fff;padding:14px 40px;font-size:14px;font-weight:600;text-decoration:none;font-family:'DM Sans',sans-serif}
+    .closing-price{margin-top:16px;font-size:13px;color:#999}
+    .closing-footer{margin-top:20px;font-size:12px;color:#bbb}
 
     .methodology{margin-top:24px;padding-top:16px;border-top:1px solid #eee;font-size:10px;color:#aaa;line-height:1.6;text-align:center}
     .methodology-label{font-size:9px;text-transform:uppercase;letter-spacing:1.5px;color:#bbb;margin-bottom:4px}
@@ -413,9 +418,12 @@ export function generateReportHTML(data: ReportData): string {
       </div>
 
       <div class="closing">
-        <p class="closing-text">Now you see the pattern. What you do next is yours.</p>
-        <a href="https://unfilteredconversations.com" class="closing-btn">Book Your Decision Room Session</a>
-        <p class="closing-url">unfilteredconversations.com</p>
+        <p class="closing-heading">Now you see the pattern. What you do next is yours.</p>
+        <p class="closing-offer">If you want to talk through your results, I'm available.</p>
+        <p class="closing-details">60 minutes. Your report. Your situation. No pitch, no program. Just the conversation.</p>
+        <a href="${CALENDLY_URL}" class="closing-cta">Book a Session</a>
+        <p class="closing-price">$200  ·  Includes follow-up</p>
+        <p class="closing-footer">unfilteredconversations.com</p>
         <div class="methodology">
           <div class="methodology-label">Methodology</div>
           This assessment is based on the Unfiltered Conversations Leadership Signal Model, measuring six dimensions across strategic visibility, political acuity, assertive communication, decision velocity, network architecture, and operational load. Developed from 500+ leadership coaching engagements.
