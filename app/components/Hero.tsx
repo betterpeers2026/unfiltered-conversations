@@ -69,150 +69,162 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* Right column */}
-          <div className="relative lg:-ml-8">
-            <div className="w-[340px] h-[420px] mx-auto lg:mr-auto rounded-[14px] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.08)]">
-              <img
-                src="/hero-photo.jpg"
-                alt="Unfiltered Conversations"
-                className="w-full h-full object-cover object-center"
-              />
-            </div>
-
-            {/* Assessment preview card */}
-            <div
-              className="absolute -bottom-8 right-0 lg:-right-20 overflow-hidden"
-              style={{
-                width: 360,
-                background: "#fff",
-                borderRadius: 16,
-                boxShadow:
-                  "0 12px 48px rgba(42,56,143,0.15), 0 2px 8px rgba(0,0,0,0.06)",
-                border: "1px solid #D8E0EA",
-              }}
-            >
-              {/* Royal header */}
+          {/* Right column - Report Showcase */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="flex-shrink-0 w-full max-w-[560px] lg:max-w-none lg:w-[540px]">
               <div
-                className="text-center"
-                style={{ background: "#2a388f", padding: "22px 26px" }}
+                className="rounded-2xl p-10 pb-8"
+                style={{
+                  background: "linear-gradient(135deg, #151D4F 0%, #2a388f 100%)",
+                  boxShadow: "0 16px 48px rgba(42,56,143,0.2)",
+                }}
               >
-                <p
-                  className="uppercase"
-                  style={{
-                    fontSize: 7,
-                    letterSpacing: 2,
-                    color: "rgba(255,255,255,0.45)",
-                    marginBottom: 8,
-                  }}
-                >
-                  Sample Result
-                </p>
-                <p style={{ fontSize: 22, color: "#00b8fb", marginBottom: 6 }}>
-                  ◇
-                </p>
-                <p
-                  className="font-serif"
-                  style={{ fontSize: 15, color: "#fff", marginBottom: 4 }}
-                >
-                  The Over-Prepared Strategist
-                </p>
-                <p
-                  className="font-serif italic"
-                  style={{ fontSize: 11, color: "#00b8fb" }}
-                >
-                  &ldquo;How visible can I be?&rdquo;
-                </p>
-              </div>
-
-              {/* Six Dimensions */}
-              <div style={{ padding: "22px 26px 18px" }}>
-                <p
-                  className="uppercase"
-                  style={{
-                    fontSize: 9,
-                    letterSpacing: 2,
-                    color: "#7A8098",
-                    fontWeight: 600,
-                    marginBottom: 12,
-                  }}
-                >
-                  Six Dimensions
-                </p>
-                {[
-                  { name: "Strategic Visibility", score: "2.2", pct: 44 },
-                  { name: "Political Acumen", score: "3.1", pct: 62 },
-                  { name: "Assertive Communication", score: "2.5", pct: 50 },
-                  { name: "Decision Velocity", score: "2.0", pct: 40 },
-                  { name: "Network Architecture", score: "1.8", pct: 36 },
-                  { name: "Operational Load", score: "3.8", pct: 76 },
-                ].map((d) => (
-                  <div key={d.name} style={{ marginBottom: 10 }}>
-                    <div
-                      className="flex justify-between items-baseline"
-                      style={{ marginBottom: 4 }}
-                    >
-                      <span style={{ fontSize: 11, fontWeight: 500, color: "#1E2548" }}>
-                        {d.name}
+                {/* Four mini report pages */}
+                <div className="flex justify-center gap-4">
+                  {/* Page 1: Cover */}
+                  <div
+                    className="w-[110px] md:w-[140px] h-[145px] md:h-[185px] bg-white rounded-md overflow-hidden"
+                    style={{ boxShadow: "0 4px 16px rgba(0,0,0,0.15)" }}
+                  >
+                    <div className="h-1/2 bg-[#2a388f] flex flex-col items-center justify-center p-2.5 text-center">
+                      <span className="text-[#00b8fb] text-sm mb-1">◇</span>
+                      <span className="font-serif text-[8px] text-white leading-tight">
+                        The Over-Prepared Strategist
                       </span>
-                      <span style={{ fontSize: 9, color: "#7A8098" }}>
-                        {d.score}
+                      <span className="text-[6px] text-[#00b8fb] italic mt-0.5">
+                        &ldquo;How visible can I be?&rdquo;
                       </span>
                     </div>
-                    <div style={{ height: 4, background: "#ebf6fb", borderRadius: 2 }}>
-                      <div
-                        style={{
-                          width: `${d.pct}%`,
-                          height: "100%",
-                          borderRadius: 2,
-                          background: "linear-gradient(90deg, #00b8fb, #33C9FC)",
-                        }}
-                      />
+                    <div className="p-2.5 text-center">
+                      <div className="text-[6px] uppercase tracking-wider text-[#7A8098] mb-1">
+                        Prepared for
+                      </div>
+                      <div className="text-[8px] font-bold text-[#1E2548]">Your Name Here</div>
                     </div>
                   </div>
-                ))}
-              </div>
 
-              {/* Blurred teaser */}
-              <div style={{ padding: "0 26px 22px" }}>
-                <div
-                  className="relative overflow-hidden"
-                  style={{
-                    borderRadius: 10,
-                    padding: "14px 18px",
-                    background: "#F4F6FA",
-                  }}
-                >
+                  {/* Page 2: Your Pattern */}
                   <div
+                    className="hidden md:block w-[140px] h-[185px] bg-white rounded-md overflow-hidden"
                     style={{
-                      filter: "blur(4px)",
-                      userSelect: "none",
-                      WebkitUserSelect: "none",
+                      boxShadow: "0 4px 16px rgba(0,0,0,0.15)",
+                      transform: "translateY(-8px)",
                     }}
                   >
-                    <p style={{ fontSize: 10, fontWeight: 600, color: "#1E2548", marginBottom: 4 }}>
-                      Core Strength
-                    </p>
-                    <p style={{ fontSize: 11, color: "#4A5068", lineHeight: 1.5 }}>
-                      You see what others miss. While people around you react,
-                      you&apos;re already three steps ahead...
-                    </p>
+                    <div className="flex justify-between px-2.5 pt-2.5">
+                      <span className="text-[5px] uppercase tracking-wide text-[#7A8098]">
+                        Assessment Report
+                      </span>
+                      <span className="text-[5px] text-[#7A8098]">2</span>
+                    </div>
+                    <div className="px-2.5 pt-2">
+                      <div className="text-[7px] font-bold text-[#2a388f] mb-1.5">Your Pattern</div>
+                      {[100, 100, 80, 100, 70].map((w, i) => (
+                        <div
+                          key={`p2a-${i}`}
+                          className="h-[2px] bg-gray-200 rounded-sm mb-[3px]"
+                          style={{ width: `${w}%` }}
+                        />
+                      ))}
+                      <div className="h-1.5" />
+                      {[100, 90, 100, 80].map((w, i) => (
+                        <div
+                          key={`p2b-${i}`}
+                          className="h-[2px] bg-gray-200 rounded-sm mb-[3px]"
+                          style={{ width: `${w}%` }}
+                        />
+                      ))}
+                    </div>
                   </div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span
-                      style={{
-                        fontSize: 11,
-                        fontWeight: 600,
-                        color: "#2a388f",
-                        background: "rgba(255,255,255,0.92)",
-                        padding: "5px 14px",
-                        borderRadius: 6,
-                        boxShadow: "0 1px 4px rgba(0,0,0,0.06)",
-                      }}
-                    >
-                      In your full report
-                    </span>
+
+                  {/* Page 3: Dimensions */}
+                  <div
+                    className="w-[110px] md:w-[140px] h-[145px] md:h-[185px] bg-white rounded-md overflow-hidden"
+                    style={{
+                      boxShadow: "0 4px 16px rgba(0,0,0,0.15)",
+                      transform: "translateY(-4px)",
+                    }}
+                  >
+                    <div className="flex justify-between px-2.5 pt-2.5">
+                      <span className="text-[5px] uppercase tracking-wide text-[#7A8098]">
+                        Assessment Report
+                      </span>
+                      <span className="text-[5px] text-[#7A8098]">3</span>
+                    </div>
+                    <div className="px-2.5 pt-2">
+                      <div className="text-[7px] font-bold text-[#2a388f] mb-1.5">Dimensions</div>
+                      {[60, 70, 50, 58, 45, 65].map((w, i) => (
+                        <div key={`p3a-${i}`} className="flex items-center gap-1 mb-[3px]">
+                          <div className="h-[1.5px] w-7 bg-gray-200 rounded-sm" />
+                          <div className="h-[2px] flex-1 bg-gray-100 rounded-sm overflow-hidden">
+                            <div
+                              className="h-full rounded-sm"
+                              style={{
+                                width: `${w}%`,
+                                background: "rgba(0, 184, 251, 0.5)",
+                              }}
+                            />
+                          </div>
+                        </div>
+                      ))}
+                      <div className="h-1.5" />
+                      {[100, 80, 90, 100, 70, 85, 100, 60].map((w, i) => (
+                        <div
+                          key={`p3b-${i}`}
+                          className="h-[1.5px] bg-gray-200 rounded-sm mb-[2px]"
+                          style={{ width: `${w * 0.9}%` }}
+                        />
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Page 4: What To Do */}
+                  <div
+                    className="hidden md:block w-[140px] h-[185px] bg-white rounded-md overflow-hidden"
+                    style={{
+                      boxShadow: "0 4px 16px rgba(0,0,0,0.15)",
+                      transform: "translateY(4px)",
+                    }}
+                  >
+                    <div className="flex justify-between px-2.5 pt-2.5">
+                      <span className="text-[5px] uppercase tracking-wide text-[#7A8098]">
+                        Assessment Report
+                      </span>
+                      <span className="text-[5px] text-[#7A8098]">4</span>
+                    </div>
+                    <div className="px-2.5 pt-2">
+                      <div className="text-[7px] font-bold text-[#2a388f] mb-1.5">What To Do</div>
+                      <div className="text-[6px] italic text-[#4A5068] leading-snug mb-2">
+                        &ldquo;Say the next true thing.&rdquo;
+                      </div>
+                      {[100, 90, 70].map((w, i) => (
+                        <div
+                          key={`p4a-${i}`}
+                          className="h-[2px] bg-gray-200 rounded-sm mb-[3px]"
+                          style={{ width: `${w}%` }}
+                        />
+                      ))}
+                      <div className="h-2" />
+                      <div className="bg-[#F0F7FF] rounded-sm p-1.5">
+                        {[100, 80, 90].map((w, i) => (
+                          <div
+                            key={`p4b-${i}`}
+                            className="h-[1.5px] rounded-sm mb-[2px]"
+                            style={{
+                              width: `${w}%`,
+                              background: "rgba(42, 56, 143, 0.15)",
+                            }}
+                          />
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
+
+                {/* Caption */}
+                <p className="text-center text-[11px] mt-6" style={{ color: "rgba(255,255,255,0.5)" }}>
+                  Your complete 5-page leadership assessment report
+                </p>
               </div>
             </div>
           </div>
